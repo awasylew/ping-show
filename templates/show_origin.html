@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<body>
+
+{{targets}}
+
+<h1>Targets for an origin</h1>
+
+{% for target in targets %}
+<p>
+
+{{target}}
+
+{% for link in targets[target].links %}
+
+<a href='{{link.href}}'>{{link.rel}}</a>
+
+{% endfor %}
+
+</p>
+{% endfor %}
+
+</body>
+</html>
