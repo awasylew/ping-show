@@ -21,3 +21,8 @@ def show_origin():
     print(r.json())
     targets = { target['target']:target for target in r.json()}
     return render_template('show_origin.html', targets=targets)
+
+if __name__ == '__main__':
+    port = int(os.getenv("PORT"))
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=port)
