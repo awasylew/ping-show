@@ -4,19 +4,43 @@
 
 <h1>Targets for an origin</h1>
 
+<table border="1">
+
 {% for target in targets %}
-<p>
 
-{{target}}
+<tr>
 
-{% for link in targets[target].links %}
+<td>
+{{target.target}}
+</td>
 
-<a href='{{link.href}}'>{{link.rel}}</a>
+<td>
+<a href="{{base}}/pings?origin={{origin}}&target={{target.target}}">pings</a>
+</td>
+
+<td>
+<a href="{{base}}/minutes?origin={{origin}}&target={{target.target}}">minutes</a>
+</td>
+
+<td>
+<a href="{{base}}/hours?origin={{origin}}&target={{target.target}}">hours</a>
+</td>
+
+<td>
+<a href="/list_minutes/{{origin}}/{{target.target}}">LIST minutes</a>
+</td>
+
+<td>
+<a href="/list_hours/{{origin}}/{{target.target}}">LIST hours</a>
+</td>
+
+</tr>
 
 {% endfor %}
 
-</p>
-{% endfor %}
+</table>
+
+<p/>
 
 {{targets}}
 

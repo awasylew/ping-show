@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<body>
+
+<h1>Hours for origin:'{{origin}}', target:{{target}}</h1>
+
+{% for hour in hours %}
+
+<a href='/show_hour/{{origin}}/{{target}}/{{hour.hour}}'>{{hour.hour[0:8]}} {{hour.hour[8:10]}}:00</a>
+<p/>
+
+{% endfor %}
+
+{{hours}}
+
+</body>
+</html>

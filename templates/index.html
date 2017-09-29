@@ -7,8 +7,10 @@
 {% for origin in origins %}
 <p>
 
-<a href='/origin?link={{origins[origin]}}'>{{origin}}</a>
+<a href="/origins/{{origin.origin}}">{{origin.origin}}</a>
 <br/>
+
+</p>
 
 {% endfor %}
 

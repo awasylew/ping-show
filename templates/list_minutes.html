@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<body>
+
+<h1>Minutes for origin:'{{origin}}', target:{{target}}</h1>
+
+{% for minute in minutes %}
+
+<a href='/show_minute/{{origin}}/{{target}}/{{minute.minute}}'>{{minute.minute[0:8]}} {{minute.minute[8:10]}}:{{minute.minute[10:]}}</a>
+<p/>
+
+{% endfor %}
+
+{{minutes}}
+
+</body>
+</html>
