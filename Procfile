@@ -1,1 +1,1 @@
-web: python ping-show.py
+web: python show.py
