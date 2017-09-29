@@ -1,0 +1,6 @@
+---
+applications:
+- name: ping-show
+  memory: 128M
+  instances: 1
+  host: ping-show
