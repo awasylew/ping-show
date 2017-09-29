@@ -1,0 +1,1 @@
+set HTTPS_PROXY=https://126.179.0.206:9090
