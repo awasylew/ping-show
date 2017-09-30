@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<body>
+
+<h1>Pings for origin:'{{origin}}', target:'{{target}}', time:'{{time[0:4]}}-{{time[4:6]}}-{{time[6:8]}} {{time[8:10]}}:00'</h1>
+
+<table border=1>
+
+{% for ping in pings %}
+
+<tr>
+  <td>
+    {{ping.time[8:10]}}:{{ping.time[10:12]}}:{{ping.time[12:14]}}
+  </td>
+  <td>
+    {% if ping.success %}
+      {{ping.rtt}}s
+    {% else %}
+      <font color=red>FAIL</font>
+    {% endif %}
+  </td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<p/>
+{{pings}}
+
+</body>
+</html>

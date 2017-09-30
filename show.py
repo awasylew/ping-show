@@ -43,7 +43,8 @@ def show_minute(origin, target, minute):
 @app.route('/show_hour/<origin>/<target>/<hour>')
 def show_hour(origin, target, hour):
     r = requests.get(base+'/pings', {'origin':origin, 'target':target, 'time_prefix':hour})
-    return r.text, 200
+    # return r.text, 200
+    return render_template('show_hour.html', origin=origin, target=target, time=hour, pings=r.json())
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT"))
