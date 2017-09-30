@@ -17,11 +17,8 @@ def list_origins():
 
 @app.route('/origins/<origin>')
 def show_origin(origin):
-    # link = request.args.get('link')
     r = requests.get(base+'/targets', {'origin':origin})
-#    targets = { target['target']:target for target in r.json()}
     return render_template('show_origin.html', base=base, origin=origin, targets=r.json())
-#    return r.text
 
 @app.route('/list_minutes/<origin>/<target>')
 def list_minutes(origin, target):
@@ -29,11 +26,21 @@ def list_minutes(origin, target):
 #    return r.text
     return render_template('list_minutes.html', origin=origin, target=target, minutes=r.json())
 
+def time_as_date(time):
+    return time[0:4]+'-'+time[4:6]+'-'+time[6:8]
+
+def time_as_date_hour(time):
+    return time[0:4]+'-'+time[4:6]+'-'+time[6:8]+' '+time[8:10]+':00'
+
 @app.route('/list_hours/<origin>/<target>')
 def list_hours(origin, target):
     r = requests.get(base+'/hours', {'origin':origin, 'target':target})
-#    return r.text
-    return render_template('list_hours.html', origin=origin, target=target, hours=r.json())
+    data = { time_as_date_hour(hour['hour']): \
+        {'hour':hour['hour'], 'count':hour['count'], \
+            'success_rate':round(100.0*hour['count_success']/hour['count'])} \
+        for hour in r.json()}
+    return render_template('list_hours.html', origin=origin, target=target, \
+        hours=r.json(), data=data)
 
 @app.route('/show_minute/<origin>/<target>/<minute>')
 def show_minute(origin, target, minute):

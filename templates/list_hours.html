@@ -4,14 +4,49 @@
 
 <h1>Hours for origin:'{{origin}}', target:{{target}}</h1>
 
-{% for hour in hours %}
+<table border=1>
 
-<a href='/show_hour/{{origin}}/{{target}}/{{hour.hour}}'>{{hour.hour[0:8]}} {{hour.hour[8:10]}}:00</a>
-<p/>
+<th>
+  hour
+</th>
+<th>
+  count
+</th>
+<th>
+  success rate
+</th>
+<th>
+  action
+</th>
 
+{% for hour in data %}
+<tr>
+
+  <td>
+    {{hour}}
+  </td>
+
+  <td>
+    {{data[hour].count}}
+  </td>
+
+  <td>
+    {{data[hour].success_rate}}
+  </td>
+
+  <td>
+    <a href='/show_hour/{{origin}}/{{target}}/{{data[hour].hour}}'>LIST pings</a>
+  </td>
+
+</tr>
 {% endfor %}
+</table>
 
+<p/>hours:<br/>
 {{hours}}
+
+<p/>data:<br/>
+{{data}}
 
 </body>
 </html>
