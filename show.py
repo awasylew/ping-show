@@ -23,7 +23,6 @@ def show_origin(origin):
 @app.route('/list_minutes/<origin>/<target>')
 def list_minutes(origin, target):
     r = requests.get(base+'/minutes', {'origin':origin, 'target':target})
-#    return r.text
     return render_template('list_minutes.html', origin=origin, target=target, minutes=r.json())
 
 def time_as_date(time):
@@ -37,6 +36,8 @@ def list_hours(origin, target):
     r = requests.get(base+'/hours', {'origin':origin, 'target':target})
     data = { time_as_date_hour(hour['hour']): \
         {'hour':hour['hour'], 'count':hour['count'], \
+            'min_rtt':hour['min_rtt'], 'max_rtt':hour['max_rtt'], \
+            'avg_rtt':'%.2f' % hour['avg_rtt'], \
             'success_rate':round(100.0*hour['count_success']/hour['count'])} \
         for hour in r.json()}
     return render_template('list_hours.html', origin=origin, target=target, \

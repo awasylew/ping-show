@@ -6,6 +6,7 @@
 
 <table border=1>
 
+<thead>
 <th>
   hour
 </th>
@@ -16,9 +17,20 @@
   success rate
 </th>
 <th>
+  min rtt
+</th>
+<th>
+  avg rtt
+</th>
+<th>
+  max rtt
+</th>
+<th>
   action
 </th>
+</thead>
 
+<tbody>
 {% for hour in data %}
 <tr>
 
@@ -35,11 +47,24 @@
   </td>
 
   <td>
+    {{data[hour].min_rtt}}
+  </td>
+
+  <td>
+    {{data[hour].avg_rtt}}
+  </td>
+
+  <td>
+    {{data[hour].max_rtt}}
+  </td>
+
+  <td>
     <a href='/show_hour/{{origin}}/{{target}}/{{data[hour].hour}}'>LIST pings</a>
   </td>
 
 </tr>
 {% endfor %}
+</tbody>
 </table>
 
 <p/>hours:<br/>
