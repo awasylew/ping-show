@@ -59,7 +59,7 @@
   </td>
 
   <td>
-    <a href='/show_hour/{{origin}}/{{target}}/{{data[hour].hour}}'>LIST pings</a>
+    <a href="{{url_for('show_hour', origin=origin, target=target, hour=data[hour].hour, _external=True)}}">LIST pings</a>
   </td>
 
 </tr>
