@@ -4,7 +4,8 @@ import os
 
 app = Flask(__name__)
 
-base = 'http://ping-store.herokuapp.com'
+#base = 'http://ping-store.herokuapp.com'
+base = 'https://dmd21xtvq2.execute-api.eu-west-1.amazonaws.com/dev'
 
 @app.route('/')
 def list_origins():
