@@ -1,5 +1,8 @@
 /ve/
 /ve-zappa/
+/venv/
+/vez/
 __pycache__/
 
 setawscredentials.bat
+awscredentials.bat
