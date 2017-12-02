@@ -4,8 +4,7 @@ import os
 
 app = Flask(__name__)
 
-#base = 'http://ping-store.herokuapp.com'
-base = 'https://dmd21xtvq2.execute-api.eu-west-1.amazonaws.com/dev'
+base = os.getenv('STORE_URL')
 
 @app.route('/')
 def list_origins():
