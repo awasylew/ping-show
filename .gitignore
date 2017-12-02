@@ -2,7 +2,10 @@
 /ve-zappa/
 /venv/
 /vez/
+/vepm-zappa/
 __pycache__/
 
 setawscredentials.bat
 awscredentials.bat
+setawscred.bat
+setenv.bat
